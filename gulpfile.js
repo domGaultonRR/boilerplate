@@ -58,10 +58,26 @@ gulp.task('copy-html', function () {
         .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('copy-image', function () {
-    gulp.src(config.app+'img/**/*.*')
-        .pipe(gulp.dest(config.dist+'img'));
+// Copy Files to Dist //
+
+gulp.task('copy-files', function () {
+    gulp.src(config.app+'**/**/*.*')
+        .pipe(gulp.dest(config.dist));
 });
+
+// // Copy Fonts to Dist //
+
+// gulp.task('copy-fonts', function () {
+//     gulp.src(config.app+'fonts/**/*.*')
+//         .pipe(gulp.dest(config.dist+'fonts'));
+// });
+
+// // Copy Fonts to Dist //
+
+// gulp.task('copy-xx', function () {
+//     gulp.src(config.app+'**/**/*.*')
+//         .pipe(gulp.dest(config.dist));
+// });
 
 gulp.task('watch', function(){
     gulp.watch('*.html', ['copy-html']);
@@ -71,5 +87,5 @@ gulp.task('watch', function(){
 // Gulp Task //
 
 gulp.task('default', function () {  
-    runSequence('clean', ['copy-html' , 'copy-image' , 'sass', 'browser-sync', 'compress'], 'watch');
+    runSequence('clean', ['copy-html' , 'copy-files' , 'sass', 'browser-sync', 'compress'], 'watch');
 });
