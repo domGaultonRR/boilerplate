@@ -11,11 +11,15 @@
 4. git push
 
 ## Terminal Commands
-⋅⋅*Creates package.json file with details
+
+### Explanation
+1. Creates package.json file with details
+2. Downloads required for gulp tasks
+3. Run gulp task
+
+### Execution
 1. npm init
-⋅⋅*Run gulp task
 2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-concat gulp-clean gulp-rename run-sequence pump --save-dev 
-⋅⋅*Downloads required for gulp tasks
 3. gulp 
 
 
