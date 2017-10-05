@@ -11,9 +11,13 @@
 4. git push
 
 ## Terminal Commands
-1. npm init (creates package.json file with details)
-2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-concat gulp-clean gulp-rename run-sequence pump --save-dev (downloads required gulp tasks)
-3. gulp (launches localhost)
+Creates package.json file with details
+1. npm init 
+Downloads required for gulp tasks
+2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-concat gulp-clean gulp-rename run-sequence pump --save-dev 
+Run gulp task
+3. gulp 
+
 
 ## App Setup
 1. DO NOT TOUCH DIST FOLDER!
