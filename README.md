@@ -7,14 +7,15 @@
 4. git push
 
 ##Terminal Commands
-1. npm init
-2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-clean pump --save-dev
-3. gulp
+1. npm init (creates package.json file with details)
+2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-clean run-sequence pump --save-dev (downloads required gulp tasks)
+3. gulp (launches localhost)
 
 ##App Setup
-1. index.html is in the root but copies to app on launch
-2. SASS in the scss folder - add more files and include the, to main.scss
-3. JS currently single file
+1. DO NOT TOUCH DIST FOLDER!
+2. index.html is in the root but copies to dist on launch
+3. SASS in the scss folder - add more files and include the, to main.scss
+4. JS currently single file
 
 ##Gulp Instructions
 1. gulp clean - cleans/clears the dist folder

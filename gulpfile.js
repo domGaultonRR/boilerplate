@@ -4,6 +4,7 @@ var browserSync = require('browser-sync');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 var clean = require('gulp-clean');
+var runSequence = require('run-sequence');
 
 // Variables //
 
@@ -45,7 +46,7 @@ gulp.task('clean', function () {
 gulp.task('browser-sync', ['clean'],function() {  
     browserSync.init([config.app+'scss/*.scss', config.app+'js/*.js', '*.html'], {
         server: {
-            baseDir: config.root
+            baseDir: config.dist
         }
     });
 });
@@ -55,14 +56,20 @@ gulp.task('browser-sync', ['clean'],function() {
 gulp.task('copy-html', function () {
     gulp.src('index.html')
         .pipe(gulp.dest(config.dist));
-    // gulp.src(config.app+'img/**/*.{jpg,jpeg,png,svg}')
-    //     .pipe(gulp.dest(config.dist+'img'));
 });
 
-// Gulp Task //
+gulp.task('copy-image', function () {
+    gulp.src(config.app+'img/**/*.*')
+        .pipe(gulp.dest(config.dist+'img'));
+});
 
-gulp.task('default', ['clean', 'copy-html' , 'sass', 'browser-sync', 'compress'], function () {  
-    //gulp.watch(config.dist+'*.html');
+gulp.task('watch', function(){
+    gulp.watch('*.html', ['copy-html']);
     gulp.watch(config.app+'scss/**/*.scss', ['sass']);
     gulp.watch(config.app+'js/**/*.js', ['compress']);
+})
+// Gulp Task //
+
+gulp.task('default', function () {  
+    runSequence('clean', ['copy-html' , 'copy-image' , 'sass', 'browser-sync', 'compress'], 'watch');
 });
