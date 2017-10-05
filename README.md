@@ -6,16 +6,18 @@
 3. git commit -m 'message'
 4. git push
 
-
 ##Terminal Commands
 1. npm init
 2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-clean pump --save-dev
 3. gulp
 
 ##App Setup
-1. index.html is in the root
+1. index.html is in the root but copies to app on launch
 2. SASS in the scss folder - add more files and include the, to main.scss
 3. JS currently single file
+
+##Gulp Instructions
+1. gulp clean - cleans/clears the dist folder
 
 ##Useful links 
 1. https://gist.github.com/feliperoberto/9793674

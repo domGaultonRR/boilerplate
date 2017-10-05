@@ -43,16 +43,26 @@ gulp.task('clean', function () {
 // Browser Sync //
 
 gulp.task('browser-sync', ['clean'],function() {  
-    browserSync.init([config.app+'scss/*.scss', config.app+'js/*.js',  '*.html'], {
+    browserSync.init([config.app+'scss/*.scss', config.app+'js/*.js', '*.html'], {
         server: {
             baseDir: config.root
         }
     });
 });
 
+// Copy HTML to Dist //
+
+gulp.task('copy-html', function () {
+    gulp.src('index.html')
+        .pipe(gulp.dest(config.dist));
+    // gulp.src(config.app+'img/**/*.{jpg,jpeg,png,svg}')
+    //     .pipe(gulp.dest(config.dist+'img'));
+});
+
 // Gulp Task //
 
-gulp.task('default', ['clean', 'sass', 'browser-sync', 'compress'], function () {  
+gulp.task('default', ['clean', 'copy-html' , 'sass', 'browser-sync', 'compress'], function () {  
+    //gulp.watch(config.dist+'*.html');
     gulp.watch(config.app+'scss/**/*.scss', ['sass']);
     gulp.watch(config.app+'js/**/*.js', ['compress']);
 });
