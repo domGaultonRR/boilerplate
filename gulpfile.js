@@ -55,26 +55,7 @@ gulp.task('browser-sync', ['clean'],function() {
     });
 });
 
-// // Concatinate Scripts //
-
-// gulp.task('scripts', function() {
-//     return gulp.src([config.app+'js/*.js', '!'+config.app+'js/scripts.js'])
-//         .pipe(concat('scripts.js'))
-//         .pipe(gulp.dest(config.app+'/js'), ['compress']);
-// });
-
-// // Compress //
-
-// gulp.task('compress', function (cb) {
-//     pump([
-//         gulp.src(config.app+'scripts.js'),
-//         uglify(),
-//         gulp.dest(config.dist+'js')
-//     ],
-//     cb
-//     );
-// });
-
+// Concatinate and Uglify to Dist //
 
 gulp.task('scripts', function(){
     return gulp.src(config.app+'js/_*.js')
