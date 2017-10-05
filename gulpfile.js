@@ -5,6 +5,8 @@ var uglify = require('gulp-uglify');
 var pump = require('pump');
 var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
 
 // Variables //
 
@@ -31,7 +33,7 @@ gulp.task('copy-html', function () {
 // Copy Folders to Dist //
 
 gulp.task('copy-files', function () {
-    gulp.src([config.app+'**/**/*.*', "!"+config.app+'scss/**/*.*'])
+    gulp.src([config.app+'**/**/*.*', '!'+config.app+'scss/**/*.*', '!'+config.app+'js/_*.*'])
         .pipe(gulp.dest(config.dist));
 });
 
@@ -53,16 +55,34 @@ gulp.task('browser-sync', ['clean'],function() {
     });
 });
 
-// Compress //
+// // Concatinate Scripts //
 
-gulp.task('compress', function (cb) {
-    pump([
-        gulp.src(config.app+'**/*.js'),
-        uglify(),
-        gulp.dest(config.dist)
-    ],
-    cb
-    );
+// gulp.task('scripts', function() {
+//     return gulp.src([config.app+'js/*.js', '!'+config.app+'js/scripts.js'])
+//         .pipe(concat('scripts.js'))
+//         .pipe(gulp.dest(config.app+'/js'), ['compress']);
+// });
+
+// // Compress //
+
+// gulp.task('compress', function (cb) {
+//     pump([
+//         gulp.src(config.app+'scripts.js'),
+//         uglify(),
+//         gulp.dest(config.dist+'js')
+//     ],
+//     cb
+//     );
+// });
+
+
+gulp.task('scripts', function(){
+    return gulp.src(config.app+'js/_*.js')
+        .pipe(concat('script.js'))
+        .pipe(gulp.dest(config.app+'js'))
+        .pipe(rename('script.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(config.dist+'js'));
 });
 
 // Watch files for changes //
@@ -70,11 +90,11 @@ gulp.task('compress', function (cb) {
 gulp.task('watch', function(){
     gulp.watch('*.html', ['copy-html']);
     gulp.watch(config.app+'scss/**/*.scss', ['sass']);
-    gulp.watch(config.app+'js/**/*.js', ['compress']);
+    gulp.watch(config.app+'js/**/*.js', ['scripts']);
 })
 
 // Gulp Task - Run in Sequence //
 
 gulp.task('default', function () {  
-    runSequence('clean', ['copy-html' , 'copy-files' , 'sass', 'browser-sync', 'compress'], 'watch');
+    runSequence('clean', ['copy-html' , 'copy-files' , 'sass', 'browser-sync', 'scripts' ], 'watch');
 });
