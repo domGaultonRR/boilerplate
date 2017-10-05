@@ -1,5 +1,9 @@
 # boilerplate
 
+## Getting Started
+1. Install node.js
+2. Launch Terminal
+
 ## GIT
 1. git clone https://github.com/domGaultonRR/boilerplate.git
 2. git add .
