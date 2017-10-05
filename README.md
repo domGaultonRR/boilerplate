@@ -14,8 +14,9 @@
 ## App Setup
 1. DO NOT TOUCH DIST FOLDER!
 2. index.html is in the root but copies to dist on launch
-3. SASS in the scss folder - add more files and include the, to main.scss
+3. SASS in the scss folder - add more files and include them to main.scss
 4. JS currently single file
+5. Remember to link files for the relative dist/index.html file
 
 ## Gulp Instructions
 1. gulp clean - cleans/clears the dist folder
