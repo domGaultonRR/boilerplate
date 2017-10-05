@@ -14,31 +14,33 @@ var config = {
 	root: './'
 }
 
+// Clean //
+
+gulp.task('clean', function () {
+    return gulp.src(config.dist, {read: false})
+        .pipe(clean());
+});
+
+// Copy HTML to Dist //
+
+gulp.task('copy-html', function () {
+    gulp.src('index.html')
+        .pipe(gulp.dest(config.dist));
+});
+
+// Copy Folders to Dist //
+
+gulp.task('copy-files', function () {
+    gulp.src([config.app+'**/**/*.*', "!"+config.app+'scss/**/*.*'])
+        .pipe(gulp.dest(config.dist));
+});
+
 // SASS //
 
 gulp.task('sass', function () {  
     gulp.src(config.app+'scss/main.scss')
         .pipe(sass({includePaths: ['scss']}))
         .pipe(gulp.dest(config.dist+'css'));
-});
-
-// Uglify //
-
-gulp.task('compress', function (cb) {
-    pump([
-        gulp.src(config.app+'**/*.js'),
-        uglify(),
-        gulp.dest(config.dist)
-    ],
-    cb
-    );
-});
-
-// Clean //
-
-gulp.task('clean', function () {
-    return gulp.src(config.dist, {read: false})
-        .pipe(clean());
 });
 
 // Browser Sync //
@@ -51,40 +53,27 @@ gulp.task('browser-sync', ['clean'],function() {
     });
 });
 
-// Copy HTML to Dist //
+// Compress //
 
-gulp.task('copy-html', function () {
-    gulp.src('index.html')
-        .pipe(gulp.dest(config.dist));
+gulp.task('compress', function (cb) {
+    pump([
+        gulp.src(config.app+'**/*.js'),
+        uglify(),
+        gulp.dest(config.dist)
+    ],
+    cb
+    );
 });
 
-// Copy Files to Dist //
-
-gulp.task('copy-files', function () {
-    gulp.src(config.app+'**/**/*.*')
-        .pipe(gulp.dest(config.dist));
-});
-
-// // Copy Fonts to Dist //
-
-// gulp.task('copy-fonts', function () {
-//     gulp.src(config.app+'fonts/**/*.*')
-//         .pipe(gulp.dest(config.dist+'fonts'));
-// });
-
-// // Copy Fonts to Dist //
-
-// gulp.task('copy-xx', function () {
-//     gulp.src(config.app+'**/**/*.*')
-//         .pipe(gulp.dest(config.dist));
-// });
+// Watch files for changes //
 
 gulp.task('watch', function(){
     gulp.watch('*.html', ['copy-html']);
     gulp.watch(config.app+'scss/**/*.scss', ['sass']);
     gulp.watch(config.app+'js/**/*.js', ['compress']);
 })
-// Gulp Task //
+
+// Gulp Task - Run in Sequence //
 
 gulp.task('default', function () {  
     runSequence('clean', ['copy-html' , 'copy-files' , 'sass', 'browser-sync', 'compress'], 'watch');
