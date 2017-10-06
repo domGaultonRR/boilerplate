@@ -19,9 +19,8 @@
 
 ### Execution
 1. npm init
-2. npm install gulp gulp-sass browser-sync gulp-uglify gulp-concat gulp-clean gulp-rename run-sequence pump --save-dev 
+2. npm install gulp run-sequence pump gulp-clean gulp-sass browser-sync gulp-concat gulp-uglify gulp-rename --save-dev 
 3. gulp 
-
 
 ## App Setup
 1. DO NOT TOUCH DIST FOLDER!
@@ -36,3 +35,4 @@
 ## Useful links 
 1. https://gist.github.com/feliperoberto/9793674
 2. http://ryanchristiani.com/getting-started-with-gulp-and-sass/
+3. https://codehangar.io/concatenate-and-minify-javascript-with-gulp/
