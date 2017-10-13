@@ -35,4 +35,4 @@
 ## Useful links 
 1. https://gist.github.com/feliperoberto/9793674
 2. http://ryanchristiani.com/getting-started-with-gulp-and-sass/
-3. https://codehangar.io/concatenate-and-minify-javascript-with-gulp/
+3. https://codehangar.io/concatenate-and-minify-javascript-with-gulp/# cookie
