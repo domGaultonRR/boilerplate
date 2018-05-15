@@ -1,20 +1,9 @@
-body {
-	width: 90%;
-	margin: 0 auto;
-	@media (min-width: $desktop) {
-		width: 900px;
-	}
-}
+.container {
+  text-align: center;
 
-.project {
-	width: 100%;
-
-	&__technology {
-		color: $grey-light;
-		font-weight: bold;
-	}
-
-	img {
-		width: 100%
-	}
+  &__inner {
+    margin: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+  }
 }

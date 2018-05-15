@@ -4,7 +4,8 @@
   "description": "Gulp Boilerplate",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "stylelint '**/*.scss'; exit 0"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,15 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
+    "gulp-csscomb": "^3.0.8",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-stylelint": "^7.0.0",
     "gulp-uglify": "^3.0.0",
     "pump": "^1.0.2",
-    "run-sequence": "^2.2.0"
+    "run-sequence": "^2.2.0",
+    "stylelint": "^9.2.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-selector-bem-pattern": "^2.0.0"
   }
 }
