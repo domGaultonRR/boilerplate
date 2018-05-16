@@ -44,7 +44,7 @@ gulp.task('copy-files', function () {
 gulp.task('sass', function () { 
   
   // csscomb.json
-  return gulp.src(config.app+'scss/**/*.scss')
+  gulp.src(config.app+'scss/**/*.scss')
     .pipe(csscomb())
     .pipe(gulp.dest(config.app+'scss'));
 
