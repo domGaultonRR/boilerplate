@@ -1,38 +1,27 @@
 # boilerplate
 
 ## Getting Started
-1. Install node.js
-2. Launch Terminal
+* Install node.js
+* Launch Terminal
 
 ## GIT
-1. git clone https://github.com/domGaultonRR/boilerplate.git
-2. git add .
-3. git commit -m 'message'
-4. git push
+* `git clone https://github.com/domGaultonRR/boilerplate.git`
+* `git add .` Adds everything
+* `git commit -m '{message}'` Add commit message 
+* `git push` Push to repo
 
 ## Terminal Commands
+* `gulp` run app
 
-### Explanation
-1. Creates package.json file with details
-2. Downloads required for gulp tasks
-3. Run gulp task
+## Linting 
+* `.csscomb.json` Reorders sass styling (via `sass` gulp task)
+* `.stylelintrc` Filters reordered sass to catch any errors (via `sass` gulp task)
+* `.eslintrc` JavaScript linting
 
-### Execution
-1. npm init
-2. npm install gulp run-sequence pump gulp-clean gulp-sass browser-sync gulp-concat gulp-uglify gulp-rename --save-dev 
-3. gulp 
 
 ## App Setup
-1. DO NOT TOUCH DIST FOLDER!
-2. index.html is in the root but copies to dist on launch - edit in root - DO NOT TOUCH DIST!
-3. SASS in the scss folder - add more files and include them to main.scss
-4. JS currently single file - Files concatinate into app/js/script.js folder then uglify to dist/js/script.js file
-5. Remember to link files for the relative dist/index.html file
-
-## Gulp Instructions
-1. gulp clean - cleans/clears the dist folder
-
-## Useful links 
-1. https://gist.github.com/feliperoberto/9793674
-2. http://ryanchristiani.com/getting-started-with-gulp-and-sass/
-3. https://codehangar.io/concatenate-and-minify-javascript-with-gulp/
+* DO NOT TOUCH DIST FOLDER!
+* index.html is in the root but copies to dist on launch - edit in root - DO NOT TOUCH DIST!
+* SASS in the scss folder - add more files and include them to main.scss
+* Javascript files starting with _[name].js will concatinate then uglify to dist/js/script.js file
+* Remember to link files for the relative dist/index.html file

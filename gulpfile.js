@@ -77,8 +77,7 @@ gulp.task('browser-sync', ['clean'],function() {
 gulp.task('scripts', function(){
   return gulp.src(config.app+'js/_*.js')
     .pipe(concat('script.js'))
-    .pipe(gulp.dest(config.app+'js'))
-    .pipe(rename('script.js'))
+    .pipe(gulp.dest(config.dist+'js'))
     .pipe(uglify())
     .pipe(gulp.dest(config.dist+'js'));
 });
