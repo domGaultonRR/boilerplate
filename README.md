@@ -5,7 +5,7 @@
 * Launch Terminal
 
 ## GIT
-* `git clone https://github.com/domGaultonRR/boilerplate.git`
+* `git clone https://github.com/domgaulton/boilerplate.git`
 * `git add .` Adds everything
 * `git commit -m '{message}'` Add commit message 
 * `git push` Push to repo
